@@ -13,7 +13,7 @@ import {
 
 import Message from "../components/Message";
 
-import { addToCart } from "../actions/cartActions";
+import { addToCart, removeFromCart } from "../actions/cartActions";
 
 const CartPage = (props) => {
   const { match, location, history } = props;
@@ -29,7 +29,9 @@ const CartPage = (props) => {
     }
   }, [dispatch, productId, qty]);
 
-  const removeFromCartHandler = () => {};
+  const removeFromCartHandler = (id) => {
+    dispatch(removeFromCart(id));
+  };
 
   const checkOutHandler = () => {
     history.push("/login?redirect=shipping");

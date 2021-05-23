@@ -1,8 +1,8 @@
-import { CARD_ADD_ITEM, CARD_REMOVE_ITEM } from "../constants/cartConstants";
+import { CART_ADD_ITEM, CART_REMOVE_ITEM } from "../constants/cartConstants";
 
 export const cartReducer = (previousState = { cartItems: [] }, action) => {
   switch (action.type) {
-    case CARD_ADD_ITEM:
+    case CART_ADD_ITEM:
       const item = action.payload;
 
       const existItem = previousState.cartItems.find(
@@ -21,6 +21,13 @@ export const cartReducer = (previousState = { cartItems: [] }, action) => {
       return {
         ...previousState,
         cartItems: [...previousState.cartItems, item],
+      };
+    case CART_REMOVE_ITEM:
+      return {
+        ...previousState,
+        cartItems: previousState.cartItems.filter(
+          (x) => x.product !== action.payload
+        ),
       };
     default:
       return previousState;
