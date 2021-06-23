@@ -10,6 +10,7 @@ import LoginPage from "./pages/LoginPage";
 import ProductPage from "./pages/ProductPage";
 import ProfilePage from "./pages/ProfilePage";
 import RegisterPage from "./pages/RegisterPage";
+import ShippingPage from "./pages/ShippingPage";
 
 function App() {
   return (
@@ -17,8 +18,9 @@ function App() {
       <Header />
 
       <main className="py-3">
+        <Route exact path="/" component={HomePage} />
         <Container>
-          <Route exact path="/" component={HomePage} />
+          <Route path="/shipping" component={ShippingPage} />
           <Route path="/login" component={LoginPage} />
           <Route path="/register" component={RegisterPage} />
           <Route path="/profile" component={ProfilePage} />
